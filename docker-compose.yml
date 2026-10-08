@@ -1,0 +1,12 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite:///./certificate_generator.db
+      GENERATED_DIR: generated
+      MAX_RECIPIENTS: 1000
+    volumes:
+      - ./generated:/app/generated
+      - ./certificate_generator.db:/app/certificate_generator.db
